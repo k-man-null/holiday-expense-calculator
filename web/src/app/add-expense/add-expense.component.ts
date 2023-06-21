@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ExpenseService } from '../services/expense.service';
-import { DialogRef } from '@angular/cdk/dialog';
+import { MatDialogRef } from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-add-expense',
@@ -15,18 +16,20 @@ export class AddExpenseComponent {
   constructor(
     private fb: FormBuilder,
     private expenseService: ExpenseService,
-    private dialogRef: DialogRef<AddExpenseComponent>) {
+    private dialogRef: MatDialogRef<AddExpenseComponent>) {
     this.expenseForm = this.fb.group({
       name: '',
       amount: 0
     })
   }
 
+  
   onSubmitExpense() {
     if (this.expenseForm.valid) {
       this.expenseService.addExpense(this.expenseForm.value);
       alert('Expense added');
-      this.dialogRef.close();
+      this.dialogRef.close(true);
+      
     }
   }
 

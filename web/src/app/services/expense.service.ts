@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Expense } from '../models/expense';
+
 import { Observable, of } from 'rxjs';
+
+import { Expense } from '../models/expense';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +11,7 @@ import { Observable, of } from 'rxjs';
 export class ExpenseService {
 
   expenses: Expense[] = [];
-
+ 
   constructor(private http: HttpClient) { }
 
   addExpense(expense: Expense) {
@@ -26,6 +28,5 @@ export class ExpenseService {
     return this.http.post('http://localhost:3000/payouts', expenses);
   }
 
-  
 
 }
