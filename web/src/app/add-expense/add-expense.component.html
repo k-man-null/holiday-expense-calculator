@@ -1,0 +1,21 @@
+<div mat-dialog-title>
+    <h2>Enter the Expense</h2>
+</div>
+<form [formGroup]="expenseForm" (ngSubmit)="onSubmitExpense()">
+    <div mat-dialog-content class="dialog-form">
+        <mat-form-field appearance="outline">
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Amount</mat-label>
+            <input type="number" matInput formControlName="amount">
+        </mat-form-field>
+
+    </div>
+    <div mat-dialog-actions>
+        <button mat-raised-button>Cancel</button>
+        <button mat-raised-button color="primary" type="submit">Add</button>
+    </div>
+
+</form>
