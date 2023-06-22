@@ -1,0 +1,23 @@
+{
+  "name": "holiday-expense-calculator",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "install-all": "npm install && cd web && npm install && cd ../service && npm install",
+    "test": "cd service && npm test",
+    "start": "concurrently \"cd service && node index.js\" \"cd web && ng serve\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/k-man-null/holiday-expense-calculator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/k-man-null/holiday-expense-calculator/issues"
+  },
+  "homepage": "https://github.com/k-man-null/holiday-expense-calculator#readme",
+  "dependencies": {
+    "concurrently": "^8.2.0"
+  }
+}
