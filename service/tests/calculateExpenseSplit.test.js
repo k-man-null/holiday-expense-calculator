@@ -1,4 +1,4 @@
-const { calculateExpenseSplit } = require('../app.js');
+const { calculateExpenseSplit } = require('../business/expenses');
 
 describe('calculateExpenseSplit', () => {
     it('should correctly calculate expense split for more than two people', () => {

@@ -1,8 +1,7 @@
- 
 <mat-toolbar color="primary">
   <span>Trip Expense Calculator</span>
   <span class="toolbar-spacer"></span>
-  <button mat-raised-button color>
+  <button mat-raised-button color (click)="settleExpense()">
     SETTLE UP
   </button>
   <span class="button-spacer"></span>
@@ -11,7 +10,7 @@
   </button>
 </mat-toolbar>
 <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-  
+
   <!-- Name Column -->
   <ng-container matColumnDef="name">
     <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
@@ -24,8 +23,34 @@
     <mat-cell *matCellDef="let element"> {{element.amount}} </mat-cell>
   </ng-container>
 
- 
+
 
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
   <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 </mat-table>
+<div class="payout">
+
+  <div *ngIf="payout">
+    <h3>Total: {{ payout.total }}</h3>
+    <h3>Equal Share: {{ payout.equalShare }}</h3>
+
+    <h4>Payouts:</h4>
+    <ul>
+      <li *ngFor="let payout of payout.payouts">
+        <div class="owe">
+          <p>{{ payout.owes }}</p>
+          <span class="spacer-owe"></span>
+          <p>Owes</p>
+          <span class="spacer-owe"></span>
+          <p>{{ payout.owed }}</p>
+          <span class="spacer-owe"></span>
+          <p>{{ payout.amount | number:'1.2-2' }}</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div *ngIf="!payout">
+    <p>Waiting to settle expenses</p>
+  </div>
+</div>

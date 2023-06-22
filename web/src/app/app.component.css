@@ -9,3 +9,17 @@
 table {
     width: 100%;
 }
+
+.payout {
+    margin: 20px;
+
+}
+
+.owe {
+    display: flex;
+    flex-direction: row;
+}
+
+.spacer-owe {
+    margin: 5px; 
+}
